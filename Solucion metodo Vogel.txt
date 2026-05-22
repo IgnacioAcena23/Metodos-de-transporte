@@ -1,0 +1,91 @@
+══════════════════════════════════════
+ MÉTODO DE APROXIMACIÓN DE VOGEL
+══════════════════════════════════════
+
+✔ Problema balanceado
+
+Iteraciones:
+──────────────────────────────────────
+ Iter 1
+  Penalidad máx → Col.: Destino 2 = 5
+  Asignación: Origen 6 → Destino 2
+  Cantidad  : 50
+  Costo     : 0.0 × 50 = 0.00
+  ··································
+ Iter 2
+  Penalidad máx → Col.: Destino 5 = 4
+  Asignación: Origen 2 → Destino 5
+  Cantidad  : 60
+  Costo     : 2.0 × 60 = 120.00
+  ··································
+ Iter 3
+  Penalidad máx → Fila: Origen 4 = 3
+  Asignación: Origen 4 → Destino 1
+  Cantidad  : 30
+  Costo     : 2.0 × 30 = 60.00
+  ··································
+ Iter 4
+  Penalidad máx → Fila: Origen 1 = 1
+  Asignación: Origen 1 → Destino 1
+  Cantidad  : 10
+  Costo     : 4.0 × 10 = 40.00
+  ··································
+ Iter 5
+  Penalidad máx → Fila: Origen 1 = 1
+  Asignación: Origen 1 → Destino 4
+  Cantidad  : 40
+  Costo     : 5.0 × 40 = 200.00
+  ··································
+ Iter 6
+  Penalidad máx → Col.: Destino 4 = 5
+  Asignación: Origen 5 → Destino 4
+  Cantidad  : 20
+  Costo     : 4.0 × 20 = 80.00
+  ··································
+ Iter 7
+  Penalidad máx → Col.: Destino 2 = 2
+  Asignación: Origen 3 → Destino 2
+  Cantidad  : 10
+  Costo     : 5.0 × 10 = 50.00
+  ··································
+ Iter 8
+  Penalidad máx → Fila: Origen 3 = 2
+  Asignación: Origen 3 → Destino 3
+  Cantidad  : 30
+  Costo     : 4.0 × 30 = 120.00
+  ··································
+ Iter 9
+  Penalidad máx → Fila: Origen 5 = 1
+  Asignación: Origen 5 → Destino 3
+  Cantidad  : 20
+  Costo     : 5.0 × 20 = 100.00
+  ··································
+ Iter 10
+  Penalidad máx → Fila: Origen 5 = 0
+  Asignación: Origen 5 → Destino 5
+  Cantidad  : 30
+  Costo     : 6.0 × 30 = 180.00
+  ··································
+
+══════════════════════════════════════
+ Costo total estimado:
+ $ 950.00
+══════════════════════════════════════
+
+**1. Explicación de la asignación de Vogel**
+
+El Método de Aproximación de Vogel (VAM) es un algoritmo de resolución de problemas de transporte que busca minimizar el costo total de la solución. En cada iteración, Vogel selecciona la asignación que minimiza la penalidad de la fila o columna con mayor valor absoluto.
+
+En este caso, Vogel eligió cada asignación de la siguiente manera:
+
+- Origen 6 → Destino 2: Se asignó 50 unidades a un costo de 0,0, ya que no hay penalidad en la columna.
+- Origen 2 → Destino 5: Se asignó 60 unidades a un costo de 2,0, ya que la penalidad de la columna es 4.
+- Origen 4 → Destino 1: Se asignó 30 unidades a un costo de 2,0, ya que la penalidad de la fila es 3.
+- Origen 1 → Destino 1: Se asignó 10 unidades a un costo de 4,0, ya que la penalidad de la fila es 1.
+- Origen 1 → Destino 4: Se asignó 40 unidades a un costo de 5,0, ya que la penalidad de la fila es 1.
+- Origen 5 → Destino 4: Se asignó 20 unidades a un costo de 4,0, ya que la penalidad de la columna es 5.
+- Origen 3 → Destino 2: Se asignó 10 unidades a un costo de 5,0, ya que la penalidad de la columna es 2.
+- Origen 3 → Destino 3: Se asignó 30 unidades a un costo de 4,0, ya que la penalidad de la fila es 2.
+-
+──────────────────────────────────────
+

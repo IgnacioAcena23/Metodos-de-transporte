@@ -1,0 +1,77 @@
+════════════════════════════════════
+ SOLUCIÓN BÁSICA FACTIBLE INICIAL
+ Método de la Esquina Noroeste
+════════════════════════════════════
+
+✔ Problema balanceado
+
+Asignaciones:
+────────────────────────────────────
+  1. Origen 1 → Destino 1
+     Cantidad : 40
+     Costo    : 4.0 × 40 = 160.00
+  2. Origen 1 → Destino 2
+     Cantidad : 10
+     Costo    : 6.0 × 10 = 60.00
+  3. Origen 2 → Destino 2
+     Cantidad : 50
+     Costo    : 7.0 × 50 = 350.00
+  4. Origen 2 → Destino 3
+     Cantidad : 10
+     Costo    : 6.0 × 10 = 60.00
+  5. Origen 3 → Destino 3
+     Cantidad : 40
+     Costo    : 4.0 × 40 = 160.00
+  6. Origen 4 → Destino 4
+     Cantidad : 30
+     Costo    : 6.0 × 30 = 180.00
+  7. Origen 5 → Destino 4
+     Cantidad : 30
+     Costo    : 4.0 × 30 = 120.00
+  8. Origen 5 → Destino 5
+     Cantidad : 40
+     Costo    : 6.0 × 40 = 240.00
+  9. Origen 6 → Destino 5
+     Cantidad : 50
+     Costo    : 0.0 × 50 = 0.00
+
+════════════════════════════════════
+ Costo total estimado:
+ $ 1330.00
+════════════════════════════════════
+
+**1. Explicación del método**
+
+El Método de la Esquina Noroeste es un algoritmo de resolución de problemas de transporte que busca encontrar una solución óptima. El método funciona de la siguiente manera:
+
+- Inicialmente, se asignan las cantidades más grandes posibles de la oferta a los destinos con mayor demanda, siempre que se respeten las restricciones de capacidad de los destinos.
+- Luego, se asignan las cantidades más grandes posibles de la oferta a los orígenes con mayor oferta, siempre que se respeten las restricciones de capacidad de los orígenes y se minimice el costo total.
+- El proceso se repite hasta que se alcance un equilibrio entre la oferta y la demanda.
+
+**2. Interpretación de la solución**
+
+La solución parece razonable, ya que se han asignado las cantidades más grandes posibles de la oferta a los destinos con mayor demanda y se han minimizado los costos totales. Sin embargo, es importante verificar si la solución es óptima para asegurarse de que no hay otras soluciones que puedan mejorar el costo total.
+
+**3. Recomendación de optimización**
+
+Se recomienda optimizar la solución con el algoritmo MODI (Método de la Optimización Dinámica) para asegurarse de que se haya encontrado la solución óptima. El MODI es un algoritmo más avanzado que puede encontrar soluciones óptimas para problemas de transporte más complejos.
+────────────────────────────────────
+
+**1. Explicación del método paso a paso**
+
+El Método de la Esquina Noroeste (NE) es un algoritmo de programación lineal simple para problemas de transporte. A continuación, se describe el proceso paso a paso:
+
+- Inicialmente, se evalúan las esquinas noroeste de la matriz de oferta y demanda para identificar posibles asignaciones.
+- Se selecciona la esquina con la mayor relación entre oferta y demanda, siempre que la oferta no sea cero y la demanda no sea cero.
+- Se asignan las unidades correspondientes de oferta y demanda a la esquina seleccionada.
+- Se actualizan las cantidades restantes de oferta y demanda en las filas y columnas correspondientes.
+- El proceso se repite hasta que se hayan asignado todas las unidades de oferta y demanda.
+
+**2. Interpretación de la solución**
+
+La solución parece razonable, ya que se han asignado las unidades de oferta y demanda de manera que se maximiza la relación entre oferta y demanda en cada esquina. Sin embargo, es importante verificar si la solución es óptima.
+
+**3. Recomendación de optimización**
+
+Se recomienda optimizar la solución con el Método de la Dirección de la Máxima Descendiente (MODI), ya que es más eficiente que el Método de la Esquina Noroeste para problemas de transporte. El MODI es capaz de encontrar la solución óptima en un menor número de pasos. El Método de la Piedra de la Rueda (Stepping-Stone) también es una opción, pero es menos eficiente que el MODI.
+────────────────────────────────────
