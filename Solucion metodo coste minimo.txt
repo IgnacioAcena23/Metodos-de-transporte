@@ -1,0 +1,89 @@
+══════════════════════════════════════
+MÉTODO DE COSTO MÍNIMO
+══════════════════════════════════════
+
+✔ Problema balanceado
+
+Iteraciones:
+──────────────────────────────────────
+ Iter 1
+  Celda mín: Origen 6 → Destino 5  (costo=0.0)
+  Asignado : 50 unidades
+  Subtotal : 0.00
+  ··································
+ Iter 2
+  Celda mín: Origen 2 → Destino 5  (costo=2.0)
+  Asignado : 40 unidades
+  Subtotal : 80.00
+  ··································
+ Iter 3
+  Celda mín: Origen 4 → Destino 1  (costo=2.0)
+  Asignado : 30 unidades
+  Subtotal : 60.00
+  ··································
+ Iter 4
+  Celda mín: Origen 2 → Destino 4  (costo=3.0)
+  Asignado : 20 unidades
+  Subtotal : 60.00
+  ··································
+ Iter 5
+  Celda mín: Origen 3 → Destino 1  (costo=3.0)
+  Asignado : 10 unidades
+  Subtotal : 30.00
+  ··································
+ Iter 6
+  Celda mín: Origen 5 → Destino 4  (costo=4.0)
+  Asignado : 40 unidades
+  Subtotal : 160.00
+  ··································
+ Iter 7
+  Celda mín: Origen 3 → Destino 3  (costo=4.0)
+  Asignado : 30 unidades
+  Subtotal : 120.00
+  ··································
+ Iter 8
+  Celda mín: Origen 5 → Destino 3  (costo=5.0)
+  Asignado : 20 unidades
+  Subtotal : 100.00
+  ··································
+ Iter 9
+  Celda mín: Origen 1 → Destino 2  (costo=6.0)
+  Asignado : 50 unidades
+  Subtotal : 300.00
+  ··································
+ Iter 10
+  Celda mín: Origen 5 → Destino 2  (costo=7.0)
+  Asignado : 10 unidades
+  Subtotal : 70.00
+  ··································
+
+══════════════════════════════════════
+ Costo total:
+ $ 980.00
+══════════════════════════════════════
+
+
+──────────────────────────────────────
+ 🤖 Analizando con Groq AI...
+ (llama-3.1-8b-instant)
+
+**1. Explicación del método de selección de celdas**
+
+El método de Costo Mínimo (MCM) selecciona las celdas de la siguiente manera:
+
+- Se inicia con las celdas con oferta y demanda más altas.
+- Se selecciona la celda con el costo mínimo entre las que no se han asignado aún.
+- Si se asigna una celda, se actualiza la oferta y demanda correspondientes.
+- El proceso se repite hasta que se asignen todas las celdas.
+
+En este caso, el método seleccionó inicialmente la celda Origen 6 → Destino 5 con costo 0.00, ya que es la celda con el costo mínimo. Luego, se seleccionaron las celdas con los siguientes costos mínimos.
+
+**2. Calidad de la solución**
+
+La solución obtenida es de buena calidad, ya que el problema es balanceado y el costo total de la solución inicial es relativamente bajo ($980.00). Sin embargo, es importante realizar una evaluación más detallada para determinar si la solución es óptima.
+
+**3. Optimización con MODI o Stepping-Stone**
+
+Se recomienda optimizar la solución con el Método de Optimización Dinámica (MODI). MODI es un algoritmo más avanzado que puede mejorar la solución obtenida con MCM. Stepping-Stone también puede ser utilizado, pero MODI es más eficaz en problemas balanceados.
+──────────────────────────────────────
+
