@@ -14,7 +14,6 @@ def costo_minimo(costos, oferta, demanda):
 
     while len(filas_tachadas) < filas and len(cols_tachadas) < columnas:
         min_costo = float('inf')
-        f_min = c_min = -1
         for f in range(filas):
             if f in filas_tachadas:
                 continue
@@ -23,6 +22,23 @@ def costo_minimo(costos, oferta, demanda):
                     continue
                 if costos[f][c] < min_costo:
                     min_costo = costos[f][c]
+
+        f_min = c_min = -1
+        mejor_q = -1
+        mejor_peso = -1
+        for f in range(filas):
+            if f in filas_tachadas:
+                continue
+            for c in range(columnas):
+                if c in cols_tachadas:
+                    continue
+                if costos[f][c] != min_costo:
+                    continue
+                q = min(oferta_actual[f], demanda_actual[c])
+                peso = max(oferta_actual[f], demanda_actual[c])
+                if q > mejor_q or (q == mejor_q and peso > mejor_peso):
+                    mejor_q = q
+                    mejor_peso = peso
                     f_min, c_min = f, c
         if f_min == -1:
             break
@@ -61,7 +77,13 @@ class App(tk.Tk):
         self.configure(bg=BG)
         self.geometry("1120x740")
         self.resizable(True, True)
-        self.state('zoomed')
+        try:
+            self.state('zoomed')
+        except tk.TclError:
+            try:
+                self.attributes('-zoomed', True)
+            except tk.TclError:
+                pass
 
         self.base_font  = tkfont.Font(family="Segoe UI", size=10)
         self.bold_font  = tkfont.Font(family="Segoe UI", size=10, weight="bold")
@@ -259,14 +281,22 @@ class App(tk.Tk):
             messagebox.showerror("Error", "Todos los campos deben ser números."); return
 
         tot_o, tot_d = sum(oferta), sum(demanda)
-        costos_ext, oferta_ext, demanda_ext = [list(f) for f in costos], list(oferta), list(demanda)
+        costos_bal = [list(f) for f in costos]
+        oferta_bal = list(oferta)
+        demanda_bal = list(demanda)
         fic_orig = fic_dest = False
-        if tot_o > tot_d:
-            demanda_ext.append(tot_o - tot_d); [f.append(0) for f in costos_ext]; fic_dest = True
-        elif tot_d > tot_o:
-            oferta_ext.append(tot_d - tot_o); costos_ext.append([0]*len(demanda_ext)); fic_orig = True
 
-        asig, total, pasos = costo_minimo(costos_ext, oferta_ext, demanda_ext)
+        if tot_o > tot_d:
+            for fila in costos_bal:
+                fila.append(0)
+            demanda_bal.append(tot_o - tot_d)
+            fic_dest = True
+        elif tot_d > tot_o:
+            costos_bal.append([0] * len(demanda_bal))
+            oferta_bal.append(tot_d - tot_o)
+            fic_orig = True
+
+        asig, total, pasos = costo_minimo(costos_bal, oferta_bal, demanda_bal)
 
         for f in self.e_costos:
             for e in f: e.configure(bg=CARD, fg=TEXT)
@@ -297,6 +327,9 @@ class App(tk.Tk):
             ins("end",f"  Subtotal : {cant*cu:.2f}\n","muted")
             ins("end","  "+"·"*34+"\n","muted")
 
+        ins("end","\n"+"═"*38+"\n","muted")
+        ins("end"," Costo total:\n","title")
+        ins("end",f" $ {total:.2f}\n","success")
         ins("end","═"*38+"\n","muted")
         rt.configure(state="disabled")
 
