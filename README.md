@@ -1,3 +1,8 @@
+# Integrantes:
+
+- Ignacio Aceña
+- Roberto Siracusa
+
 # Métodos de Transporte
 
 Aplicaciones de escritorio con interfaz gráfica (GUI) para resolver problemas clásicos de **programación lineal de transporte**. Cada método genera una solución básica factible inicial y permite analizarla con inteligencia artificial usando la API de **Groq**.
